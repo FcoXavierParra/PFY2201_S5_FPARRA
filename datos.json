@@ -1,0 +1,46 @@
+{
+  "actualizado": "2026-09-14",
+  "fuente": "Catálogo de próximos lanzamientos de Nexus Play",
+  "lanzamientos": [
+    {
+      "id": 1,
+      "titulo": "Aurora Drift",
+      "genero": "Carreras",
+      "fecha": "2026-10-03",
+      "precio": 34990,
+      "descripcion": "Carreras nocturnas por ciudades costeras, con clima dinámico y campeonato cooperativo para dos jugadores."
+    },
+    {
+      "id": 2,
+      "titulo": "Umbral Profundo",
+      "genero": "RPG",
+      "fecha": "2026-10-21",
+      "precio": 44990,
+      "descripcion": "RPG por turnos ambientado bajo el océano, con un sistema de reputación que cambia el final de cada campaña."
+    },
+    {
+      "id": 3,
+      "titulo": "Torre de Hierro",
+      "genero": "Estrategia",
+      "fecha": "2026-11-08",
+      "precio": 29990,
+      "descripcion": "Estrategia en tiempo real de defensa vertical: cada piso conquistado altera las reglas del siguiente."
+    },
+    {
+      "id": 4,
+      "titulo": "Bosque de Cenizas",
+      "genero": "Aventura",
+      "fecha": "2026-11-27",
+      "precio": 24990,
+      "descripcion": "Aventura narrativa sin combate, donde el avance depende de reconstruir la memoria del bosque."
+    },
+    {
+      "id": 5,
+      "titulo": "Contragolpe",
+      "genero": "Acción",
+      "fecha": "2026-12-12",
+      "precio": 39990,
+      "descripcion": "Acción táctica por rondas cortas, con mapas destructibles y progresión de escuadra entre partidas."
+    }
+  ]
+}
