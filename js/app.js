@@ -152,13 +152,13 @@ function cargarLanzamientos() {
             });
 
             estado.textContent = datos.lanzamientos.length +
-                " titulos confirmados. Datos actualizados al " +
+                " títulos confirmados. Datos actualizados al " +
                 formatearFecha(datos.actualizado) + ".";
         })
         .catch(function (error) {
             // El usuario ve un aviso en lugar de una seccion vacia
             mostrarMensaje(contenedor,
-                "No se pudieron cargar los proximos lanzamientos. " + error.message,
+                "No se pudieron cargar los próximos lanzamientos. " + error.message,
                 "danger");
             estado.textContent = "";
         });
@@ -175,17 +175,29 @@ function cargarLanzamientos() {
  * declara su genero en el atributo data-genero del HTML.
  * @param {string} categoria - el genero a mostrar, o "todas"
  */
-function filtrarPorCategoria(categoria) {
-    const productos = document.querySelectorAll("#productos [data-genero]");
+function filtrarElementos(selector, categoria) {
     let visibles = 0;
 
-    productos.forEach(function (producto) {
-        const coincide = (categoria === "todas" || producto.dataset.genero === categoria);
-        producto.classList.toggle("d-none", !coincide);
+    document.querySelectorAll(selector).forEach(function (elemento) {
+        const coincide = (categoria === "todas" || elemento.dataset.genero === categoria);
+        elemento.classList.toggle("d-none", !coincide);
         if (coincide) {
             visibles++;
         }
     });
+
+    return visibles;
+}
+
+/**
+ * Aplica la categoria elegida a las DOS listas que dependen del genero:
+ * las tarjetas de productos destacados y el ranking de mas vendidos.
+ * Se hace con la misma funcion auxiliar para no repetir el recorrido.
+ * @param {string} categoria - el genero a mostrar, o "todas"
+ */
+function filtrarPorCategoria(categoria) {
+    const visibles = filtrarElementos("#productos [data-genero]", categoria);
+    filtrarElementos("#categorias .ranking [data-genero]", categoria);
 
     // Se marca visualmente cuál es el filtro activo
     document.querySelectorAll(".filtro-categoria").forEach(function (boton) {
@@ -281,7 +293,7 @@ function validarCamposContacto() {
     }
     // Comprobacion simple: texto, arroba, texto, punto, texto
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
-        errores.push("El correo electronico no tiene un formato valido.");
+        errores.push("El correo electrónico no tiene un formato válido.");
     }
     if (mensaje.length < 10) {
         errores.push("El mensaje debe tener al menos 10 caracteres.");
@@ -308,7 +320,7 @@ function configurarValidacionFormulario() {
             mostrarMensaje(contenedor, errores.join(" "), "danger");
         } else {
             mostrarMensaje(contenedor,
-                "Gracias por escribirnos. Te responderemos en menos de 24 horas habiles.",
+                "Gracias por escribirnos. Te responderemos en menos de 24 horas hábiles.",
                 "success");
             formulario.reset();
         }

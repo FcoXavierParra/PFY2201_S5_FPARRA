@@ -216,9 +216,6 @@
 
                 </div>
 
-                <!-- Aviso del filtro: lo escribe JavaScript al pulsar una categoría -->
-                <p id="avisoFiltro" class="small text-body-secondary mt-3 mb-0" role="status"></p>
-
             </section>
 
             <!-- ============================================================
@@ -336,15 +333,33 @@
                         <li><button type="button" class="badge text-bg-secondary border-0 filtro-categoria" data-categoria="Estrategia">Estrategia</button></li>
                     </ul>
 
+                    <!-- Respuesta al clic: JavaScript escribe aquí qué se está
+                         mostrando. Va junto a los botones para que el efecto se vea
+                         sin tener que desplazarse hasta los productos. -->
+                    <p id="avisoFiltro" class="small text-body-secondary" role="status" aria-live="polite"></p>
+
                     <h3 class="h6">Los más vendidos del mes</h3>
 
                     <!-- Lista ordenada: aquí el número sí tiene significado.
                          list-group presenta el ranking como una lista de tarjetas. -->
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item">Elden Realms</li>
-                        <li class="list-group-item">Shadow Ops</li>
-                        <li class="list-group-item">Velocity GP</li>
-                        <li class="list-group-item">Pixel Kingdom</li>
+                    <!-- El ranking también responde al filtro de categorías.
+                         La posición va escrita en el marcado y no con la clase
+                         list-group-numbered de Bootstrap, que usa un contador CSS:
+                         al ocultar elementos renumeraría desde 1 y mostraría un
+                         puesto falso. Así el número sigue siendo el real. -->
+                    <ol class="list-group ranking">
+                        <li class="list-group-item d-flex align-items-center gap-2" data-genero="RPG">
+                            <span class="badge text-bg-secondary">1</span> Elden Realms
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-2" data-genero="Acción">
+                            <span class="badge text-bg-secondary">2</span> Shadow Ops
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-2" data-genero="Deportes">
+                            <span class="badge text-bg-secondary">3</span> Velocity GP
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-2" data-genero="Aventura">
+                            <span class="badge text-bg-secondary">4</span> Pixel Kingdom
+                        </li>
                     </ol>
 
                 </section>
